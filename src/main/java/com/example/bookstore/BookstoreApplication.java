@@ -19,9 +19,9 @@ public class BookstoreApplication {
 	public CommandLineRunner demo(BookRepository repository) {
 		return (args) -> {
 
-			Book first = new Book("Taru kääpiöstä", "Pekka Jalonen", 2017, 12345);
-			Book two = new Book("Elden Scrolls Ring", "Taimo Palola", 2019, 12945);
-			Book three = new Book("Hartikainen", "Jukka Palonen", 2016, 12395);
+			Book first = new Book("Taru kääpiöstä", "Pekka Jalonen", 2017, "1234556-32");
+			Book two = new Book("Elden Scrolls Ring", "Taimo Palola", 2019, "1294567-98");
+			Book three = new Book("Hangover 4", "Jukka Palonen", 2016, "1239512-36");
 
 			repository.save(first);
 			repository.save(two);

@@ -10,14 +10,14 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String title, author;
-	private int vuosi, isbn;
+	private String title, author, isbn;
+	private int vuosi;
 
 	public Book() {
 
 	}
 
-	public Book(String title, String author, int vuosi, int isbn) {
+	public Book(String title, String author, int vuosi, String isbn) {
 		super();
 		this.title = title;
 		this.author = author;
@@ -57,11 +57,11 @@ public class Book {
 		this.vuosi = vuosi;
 	}
 
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming with Spring Boot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<h1>Books</h1>
+		<tr>
+			<th>Author</th>
+			<th>Title</th>
+			<th>ISBN</th>
+			<th colspan='2'>Year</th>
+		</tr>
+
+		<tr th:each="book:${books}">
+			<td th:text="${book.author}">1</td>
+			<td th:text="${book.title}">1</td>
+			<td th:text="${book.isbn}">1</td>
+			<td th:text="${book.vuosi}">1</td>
+		</tr>
+	</table>
+</body>
+
+</html>
