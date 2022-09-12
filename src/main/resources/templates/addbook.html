@@ -4,29 +4,22 @@
 <title>Server Programming with Spring Boot</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </head>
 <body>
-	<table class="table table-striped">
-		<h1>Books</h1>
-		<tr>
-			<th>Author</th>
-			<th>Title</th>
-			<th>ISBN</th>
-			<th colspan='2'>Year</th>
-		</tr>
-
-		<tr th:each="book:${books}">
-			<td th:text="${book.author}">1</td>
-			<td th:text="${book.title}">1</td>
-			<td th:text="${book.isbn}">1</td>
-			<td th:text="${book.vuosi}">1</td>
-			<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
-		</tr>
-	</table>
-	<a href="/add" class="btn btn-primary">Add Book</a>
+	<h1>Add book</h1>
+	<div>
 	
+		<form th:object="${book}" th:action="@{save}" action="#"
+			method="post">
+			<label for="author">Author</label> <input type="text" id="author"
+				th:field="*{author}" /> <label for="title">Title</label> <input
+				type="text" id="title" th:field="*{title}" /> <label for="isbn">ISBN</label>
+			<input type="text" th:field="*{isbn}" /><label for="vuosi">Year</label> <input type="number" id="vuosi"
+				th:field="*{vuosi}" />  <input type="submit"
+				value="Save"></input>
+		</form>
+	</div>
 </body>
 
 </html>
