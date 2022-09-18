@@ -16,7 +16,16 @@
 				th:field="*{author}" /> <label for="title">Title</label> <input
 				type="text" id="title" th:field="*{title}" /> <label for="isbn">ISBN</label>
 			<input type="text" th:field="*{isbn}" /><label for="vuosi">Year</label> <input type="number" id="vuosi"
-				th:field="*{vuosi}" />  <input type="submit"
+				th:field="*{vuosi}" />  
+				
+				<label for="catelist">Category</label>
+				<select id = "catelist" th:field="*{category}" class="form-control">
+				<option th:each="category: ${categorys}"
+				th:value="${category.id}" th:text="${category.name}"></option>
+				</select>
+				
+				
+				<input type="submit"
 				value="Save" class="btn btn-success"></input>
 		</form>
 	</div>
