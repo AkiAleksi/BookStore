@@ -21,9 +21,9 @@ public class BookstoreApplication {
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository) {
 		return (args) -> {
 			
-			Category laji1 = new Category(1, "Romantiikka");
-			Category laji2 = new Category(2, "Kauhu");
-			Category laji3 = new Category(3, "Fantasia");
+			Category laji1 = new Category(1, "Adventure");
+			Category laji2 = new Category(2, "Scifi");
+			Category laji3 = new Category(3, "Horror");
 			
 			crepository.save(laji1);
 			crepository.save(laji2);
