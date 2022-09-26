@@ -55,7 +55,7 @@ public class BookController {
 
 	}
 
-	@RequestMapping(value = "/book", method = RequestMethod.GET)
+	@RequestMapping(value = "/books", method = RequestMethod.GET)
 	public @ResponseBody List<Book> BookListRest() {
 		return (List<Book>) repository.findAll();
 
