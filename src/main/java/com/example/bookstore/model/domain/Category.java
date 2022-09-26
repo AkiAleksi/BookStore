@@ -9,25 +9,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
-	
+
+	@JsonIgnore
 	@OneToMany(targetEntity = Book.class, cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
-	
+
 	public Category() {
-		
+
 	}
 
 	public Category(long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		
+
 	}
 
 	public long getId() {

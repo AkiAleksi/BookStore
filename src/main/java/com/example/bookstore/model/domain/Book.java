@@ -14,7 +14,7 @@ public class Book {
 	private long id;
 	private String title, author, isbn;
 	private int vuosi;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
@@ -29,7 +29,7 @@ public class Book {
 		this.author = author;
 		this.vuosi = vuosi;
 		this.isbn = isbn;
-		this.category=category;
+		this.category = category;
 	}
 
 	public long getId() {
@@ -71,11 +71,11 @@ public class Book {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	
+
 	public Category getCategory() {
 		return category;
 	}
-	
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
