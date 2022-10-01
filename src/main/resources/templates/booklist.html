@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Server Programming with Spring Boot</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,15 +9,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </head>
 <body>
+<h1>Books</h1>
+<h1 th:inline="text">User: [[${#httpServletRequest.remoteUser}]]</h1>
 	<table class="table table-striped">
-		<h1>Books</h1>
+	
+		
 		<tr>
 			<th>Author</th>
 			<th>Title</th>
 			<th>ISBN</th>
 			<th>Year</th>
 			<th>Category</th>
-			<th>Delete book</th>
+			<th sec:authorize="hasRole('ADMIN')">Delete book</th>
 			<th>Edit book</th>
 		</tr>
 
@@ -26,11 +30,16 @@
 			<td th:text="${book.isbn}">1</td>
 			<td th:text="${book.vuosi}">1</td>
 			<td th:text="${book.category.name}"></td>
-			<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
+			<td  sec:authorize="hasRole('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 			<td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-primary">Edit</a></td>
 		</tr>
 	</table>
 	<a href="/add" class="btn btn-success">Add Book</a>
+	<div style="text-align: center">
+	<form th:action="@{/logout}" method="post">
+ <input class="btn btn-danger" type="submit" value="Sign Out"/>
+ </div>
+</form>
 	
 </body>
 
